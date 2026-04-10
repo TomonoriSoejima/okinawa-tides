@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naha Tide Calendar – April 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0a1628;
+      color: #e0eaf8;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #7ec8e3;
+      letter-spacing: 0.5px;
+    }
+
+    header p {
+      color: #8aa5c0;
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+    }
+
+    .legend {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+    }
+
+    .legend span { display: flex; align-items: center; gap: 0.35rem; }
+    .dot {
+      width: 10px; height: 10px; border-radius: 50%; display: inline-block;
+    }
+    .dot-high { background: #7ec8e3; }
+    .dot-low  { background: #f4a261; }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      min-width: 760px;
+    }
+
+    thead th {
+      background: #112240;
+      color: #7ec8e3;
+      padding: 0.6rem 0.7rem;
+      text-align: center;
+      font-weight: 600;
+      border-bottom: 2px solid #1e3a5f;
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #1a2d4a;
+      transition: background 0.15s;
+    }
+    tbody tr:hover { background: #122038; }
+    tbody tr.today { background: #0d3055; }
+    tbody tr.today td:first-child { font-weight: 700; color: #7ec8e3; }
+
+    td {
+      padding: 0.55rem 0.7rem;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    td:first-child {
+      text-align: left;
+      font-weight: 600;
+      white-space: nowrap;
+      min-width: 70px;
+    }
+
+    .high { color: #7ec8e3; }
+    .low  { color: #f4a261; }
+    .meta { color: #6b88a6; font-size: 0.76rem; }
+
+    .moon-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      background: #1e3a5f;
+      color: #c8d8f0;
+      white-space: nowrap;
+      margin-top: 0.2rem;
+    }
+
+    .sun-row { font-size: 0.76rem; color: #e8c96a; }
+    .moon-row { font-size: 0.76rem; color: #c8d8f0; }
+
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.76rem;
+      color: #4a6280;
+    }
+
+    footer a { color: #7ec8e3; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🌊 Naha, Okinawa – Tide Calendar</h1>
+  <p>April 2026 &nbsp;·&nbsp; All times JST &nbsp;·&nbsp; Heights in metres</p>
+</header>
+
+<div class="legend">
+  <span><span class="dot dot-high"></span> High tide</span>
+  <span><span class="dot dot-low"></span>  Low tide</span>
+  <span style="color:#e8c96a">☀ Sunrise / Sunset</span>
+  <span style="color:#c8d8f0">🌙 Moonrise / Moonset</span>
+</div>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Tide 1</th>
+      <th>Tide 2</th>
+      <th>Tide 3</th>
+      <th>Tide 4</th>
+      <th>Tide 5</th>
+      <th>Moon</th>
+      <th>☀ Rise / Set</th>
+      <th>🌙 Rise / Set</th>
+    </tr>
+  </thead>
+  <tbody id="tbody">
+  </tbody>
+</table>
+</div>
+
+<footer>
+  Data sourced from <a href="https://www.tidetime.org/asia/japan/naha-okinawa-japan-calendar.htm" target="_blank" rel="noopener">tidetime.org</a> &nbsp;·&nbsp; © Tide Times 2026
+</footer>
+
+<script>
+const moonEmoji = { "Full Moon": "🌕", "Last Quarter": "🌗", "New Moon": "🌑", "First Quarter": "🌓" };
+const today = new Date().toISOString().slice(0, 10);
+
+function renderTable(days) {
+  const tbody = document.getElementById("tbody");
+  days.forEach(day => {
+    const isToday = day.date === today;
+    const tr = document.createElement("tr");
+    if (isToday) tr.classList.add("today");
+
+    // Day
+    const tdDay = document.createElement("td");
+    tdDay.textContent = day.label + (isToday ? " ◀ Today" : "");
+    tr.appendChild(tdDay);
+
+    // Up to 5 tide slots
+    for (let i = 0; i < 5; i++) {
+      const td = document.createElement("td");
+      const tide = day.tides[i];
+      if (tide) {
+        td.innerHTML = `<span class="${tide.type === 'H' ? 'high' : 'low'}">${tide.type === 'H' ? '▲' : '▼'} ${tide.time}</span><br><span class="meta">${tide.height_m} m</span>`;
+      } else {
+        td.textContent = "—";
+        td.style.color = "#2a4a6a";
+      }
+      tr.appendChild(td);
+    }
+
+    // Moon phase
+    const tdMoon = document.createElement("td");
+    if (day.moon_phase) {
+      tdMoon.innerHTML = `<span class="moon-badge">${moonEmoji[day.moon_phase] || ""} ${day.moon_phase}</span>`;
+    } else {
+      tdMoon.textContent = "—";
+      tdMoon.style.color = "#2a4a6a";
+    }
+    tr.appendChild(tdMoon);
+
+    // Sun
+    const tdSun = document.createElement("td");
+    tdSun.innerHTML = `<span class="sun-row">↑ ${day.sunrise}<br>↓ ${day.sunset}</span>`;
+    tr.appendChild(tdSun);
+
+    // Moon times
+    const tdMoonTime = document.createElement("td");
+    tdMoonTime.innerHTML = `<span class="moon-row">↑ ${day.moonrise || "—"}<br>↓ ${day.moonset || "—"}</span>`;
+    tr.appendChild(tdMoonTime);
+
+    tbody.appendChild(tr);
+  });
+}
+
+fetch('./data/tides.json')
+  .then(r => r.json())
+  .then(data => {
+    document.querySelector('header p').textContent =
+      `${data.days[0].label.split(' ').slice(2).join(' ')} – ${data.days[data.days.length-1].label} · All times ${data.timezone} · Heights in metres`;
+    renderTable(data.days);
+  })
+  .catch(() => {
+    document.getElementById("tbody").innerHTML =
+      '<tr><td colspan="9" style="text-align:center;color:#f4a261;padding:2rem">Could not load data/tides.json — serve this folder with a local HTTP server.<br><code>python3 -m http.server 8080</code></td></tr>';
+  });
+
+</script>
+</body>
+</html>
