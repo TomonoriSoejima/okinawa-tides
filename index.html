@@ -215,11 +215,12 @@ function buildSparklineSVG(tides, uid) {
 
   // Extend one segment beyond each day boundary so the curve reaches
   // t=0 and t=1440 smoothly via cosine interpolation.
+  const gapStart = pts[1].t - pts[0].t || 360; // fallback 6 h if identical
+  const gapEnd   = pts[pts.length - 1].t - pts[pts.length - 2].t || 360;
   const ext = [
-    { t: pts[0].t - (pts[1].t - pts[0].t), h: pts[1].h },
+    { t: pts[0].t - gapStart, h: pts[1].h },
     ...pts,
-    { t: pts[pts.length - 1].t + (pts[pts.length - 1].t - pts[pts.length - 2].t),
-      h: pts[pts.length - 2].h }
+    { t: pts[pts.length - 1].t + gapEnd, h: pts[pts.length - 2].h }
   ];
 
   const toX = t  => PAD + (W - PAD * 2) * (t / 1440);
