@@ -60,9 +60,16 @@ def month_url(year: int, month: int) -> str:
 
 
 def parse_time(text: str) -> str | None:
-    """Extract '6:49 AM' from '6:49 AM JST 1.89 m'."""
-    m = re.search(r'\d{1,2}:\d{2}\s+(?:AM|PM)', text)
-    return m.group() if m else None
+    """Extract 24h time from '6:49 AM JST 1.89 m' → '06:49'."""
+    m = re.search(r'(\d{1,2}):(\d{2})\s+(AM|PM)', text)
+    if not m:
+        return None
+    h, mn, period = int(m.group(1)), m.group(2), m.group(3)
+    if period == 'PM' and h != 12:
+        h += 12
+    elif period == 'AM' and h == 12:
+        h = 0
+    return f"{h:02d}:{mn}"
 
 
 def parse_height(text: str) -> float | None:

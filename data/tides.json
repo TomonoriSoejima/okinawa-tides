@@ -1,70 +1,39 @@
 {
   "location": "Naha, Okinawa, Japan",
   "timezone": "JST",
-  "generated": "2026-04-10",
+  "generated": "2026-04-11",
   "source": "https://www.tidetime.org/asia/japan/naha-okinawa-japan-calendar.htm",
   "days": [
-    {
-      "date": "2026-04-10",
-      "label": "Fri 10 Apr",
-      "tides": [
-        {
-          "type": "H",
-          "time": "1:13 AM",
-          "height_m": 1.29
-        },
-        {
-          "type": "L",
-          "time": "5:41 AM",
-          "height_m": 1.14
-        },
-        {
-          "type": "H",
-          "time": "11:15 AM",
-          "height_m": 1.43
-        },
-        {
-          "type": "L",
-          "time": "7:09 PM",
-          "height_m": 0.64
-        }
-      ],
-      "moon_phase": "Last Quarter",
-      "sunrise": "6:11 AM",
-      "sunset": "6:50 PM",
-      "moonrise": "1:18 AM",
-      "moonset": "11:46 AM"
-    },
     {
       "date": "2026-04-11",
       "label": "Sat 11 Apr",
       "tides": [
         {
           "type": "H",
-          "time": "3:15 AM",
+          "time": "03:15",
           "height_m": 1.35
         },
         {
           "type": "L",
-          "time": "8:09 AM",
+          "time": "08:09",
           "height_m": 1.15
         },
         {
           "type": "H",
-          "time": "1:13 PM",
+          "time": "13:13",
           "height_m": 1.36
         },
         {
           "type": "L",
-          "time": "8:53 PM",
+          "time": "20:53",
           "height_m": 0.61
         }
       ],
       "moon_phase": null,
-      "sunrise": "6:10 AM",
-      "sunset": "6:50 PM",
-      "moonrise": "2:02 AM",
-      "moonset": "12:43 PM"
+      "sunrise": "06:10",
+      "sunset": "18:50",
+      "moonrise": "02:02",
+      "moonset": "12:43"
     },
     {
       "date": "2026-04-12",
@@ -72,30 +41,30 @@
       "tides": [
         {
           "type": "H",
-          "time": "4:13 AM",
+          "time": "04:13",
           "height_m": 1.46
         },
         {
           "type": "L",
-          "time": "9:46 AM",
+          "time": "09:46",
           "height_m": 1.01
         },
         {
           "type": "H",
-          "time": "3:05 PM",
+          "time": "15:05",
           "height_m": 1.43
         },
         {
           "type": "L",
-          "time": "10:01 PM",
+          "time": "22:01",
           "height_m": 0.52
         }
       ],
       "moon_phase": null,
-      "sunrise": "6:09 AM",
-      "sunset": "6:51 PM",
-      "moonrise": "2:41 AM",
-      "moonset": "1:41 PM"
+      "sunrise": "06:09",
+      "sunset": "18:51",
+      "moonrise": "02:41",
+      "moonset": "13:41"
     },
     {
       "date": "2026-04-13",
@@ -103,30 +72,30 @@
       "tides": [
         {
           "type": "H",
-          "time": "4:48 AM",
+          "time": "04:48",
           "height_m": 1.59
         },
         {
           "type": "L",
-          "time": "10:36 AM",
+          "time": "10:36",
           "height_m": 0.82
         },
         {
           "type": "H",
-          "time": "4:13 PM",
+          "time": "16:13",
           "height_m": 1.56
         },
         {
           "type": "L",
-          "time": "10:48 PM",
+          "time": "22:48",
           "height_m": 0.42
         }
       ],
       "moon_phase": null,
-      "sunrise": "6:08 AM",
-      "sunset": "6:51 PM",
-      "moonrise": "3:17 AM",
-      "moonset": "2:39 PM"
+      "sunrise": "06:08",
+      "sunset": "18:51",
+      "moonrise": "03:17",
+      "moonset": "14:39"
     },
     {
       "date": "2026-04-14",
@@ -134,30 +103,30 @@
       "tides": [
         {
           "type": "H",
-          "time": "5:17 AM",
+          "time": "05:17",
           "height_m": 1.71
         },
         {
           "type": "L",
-          "time": "11:14 AM",
+          "time": "11:14",
           "height_m": 0.61
         },
         {
           "type": "H",
-          "time": "5:05 PM",
+          "time": "17:05",
           "height_m": 1.71
         },
         {
           "type": "L",
-          "time": "11:28 PM",
+          "time": "23:28",
           "height_m": 0.34
         }
       ],
       "moon_phase": null,
-      "sunrise": "6:07 AM",
-      "sunset": "6:52 PM",
-      "moonrise": "3:50 AM",
-      "moonset": "3:38 PM"
+      "sunrise": "06:07",
+      "sunset": "18:52",
+      "moonrise": "03:50",
+      "moonset": "15:38"
     },
     {
       "date": "2026-04-15",
@@ -165,25 +134,25 @@
       "tides": [
         {
           "type": "H",
-          "time": "5:45 AM",
+          "time": "05:45",
           "height_m": 1.82
         },
         {
           "type": "L",
-          "time": "11:50 AM",
+          "time": "11:50",
           "height_m": 0.38
         },
         {
           "type": "H",
-          "time": "5:52 PM",
+          "time": "17:52",
           "height_m": 1.84
         }
       ],
       "moon_phase": null,
-      "sunrise": "6:06 AM",
-      "sunset": "6:52 PM",
-      "moonrise": "4:23 AM",
-      "moonset": "4:38 PM"
+      "sunrise": "06:06",
+      "sunset": "18:52",
+      "moonrise": "04:23",
+      "moonset": "16:38"
     },
     {
       "date": "2026-04-16",
@@ -191,30 +160,30 @@
       "tides": [
         {
           "type": "L",
-          "time": "12:05 AM",
+          "time": "00:05",
           "height_m": 0.31
         },
         {
           "type": "H",
-          "time": "6:13 AM",
+          "time": "06:13",
           "height_m": 1.91
         },
         {
           "type": "L",
-          "time": "12:27 PM",
+          "time": "12:27",
           "height_m": 0.17
         },
         {
           "type": "H",
-          "time": "6:37 PM",
+          "time": "18:37",
           "height_m": 1.94
         }
       ],
       "moon_phase": null,
-      "sunrise": "6:05 AM",
-      "sunset": "6:53 PM",
-      "moonrise": "4:56 AM",
-      "moonset": "5:40 PM"
+      "sunrise": "06:05",
+      "sunset": "18:53",
+      "moonrise": "04:56",
+      "moonset": "17:40"
     },
     {
       "date": "2026-04-17",
@@ -222,30 +191,30 @@
       "tides": [
         {
           "type": "L",
-          "time": "12:41 AM",
+          "time": "00:41",
           "height_m": 0.33
         },
         {
           "type": "H",
-          "time": "6:41 AM",
+          "time": "06:41",
           "height_m": 1.99
         },
         {
           "type": "L",
-          "time": "1:04 PM",
+          "time": "13:04",
           "height_m": -0.01
         },
         {
           "type": "H",
-          "time": "7:22 PM",
+          "time": "19:22",
           "height_m": 1.98
         }
       ],
       "moon_phase": "New Moon",
-      "sunrise": "6:04 AM",
-      "sunset": "6:53 PM",
-      "moonrise": "5:31 AM",
-      "moonset": "6:45 PM"
+      "sunrise": "06:04",
+      "sunset": "18:53",
+      "moonrise": "05:31",
+      "moonset": "18:45"
     },
     {
       "date": "2026-04-18",
@@ -253,30 +222,30 @@
       "tides": [
         {
           "type": "L",
-          "time": "1:17 AM",
+          "time": "01:17",
           "height_m": 0.4
         },
         {
           "type": "H",
-          "time": "7:13 AM",
+          "time": "07:13",
           "height_m": 2.04
         },
         {
           "type": "L",
-          "time": "1:43 PM",
+          "time": "13:43",
           "height_m": -0.13
         },
         {
           "type": "H",
-          "time": "8:08 PM",
+          "time": "20:08",
           "height_m": 1.98
         }
       ],
       "moon_phase": null,
-      "sunrise": "6:03 AM",
-      "sunset": "6:54 PM",
-      "moonrise": "6:10 AM",
-      "moonset": "7:53 PM"
+      "sunrise": "06:03",
+      "sunset": "18:54",
+      "moonrise": "06:10",
+      "moonset": "19:53"
     },
     {
       "date": "2026-04-19",
@@ -284,30 +253,30 @@
       "tides": [
         {
           "type": "L",
-          "time": "1:54 AM",
+          "time": "01:54",
           "height_m": 0.51
         },
         {
           "type": "H",
-          "time": "7:46 AM",
+          "time": "07:46",
           "height_m": 2.06
         },
         {
           "type": "L",
-          "time": "2:25 PM",
+          "time": "14:25",
           "height_m": -0.18
         },
         {
           "type": "H",
-          "time": "8:55 PM",
+          "time": "20:55",
           "height_m": 1.91
         }
       ],
       "moon_phase": null,
-      "sunrise": "6:02 AM",
-      "sunset": "6:54 PM",
-      "moonrise": "6:54 AM",
-      "moonset": "9:05 PM"
+      "sunrise": "06:02",
+      "sunset": "18:54",
+      "moonrise": "06:54",
+      "moonset": "21:05"
     },
     {
       "date": "2026-04-20",
@@ -315,30 +284,30 @@
       "tides": [
         {
           "type": "L",
-          "time": "2:32 AM",
+          "time": "02:32",
           "height_m": 0.64
         },
         {
           "type": "H",
-          "time": "8:21 AM",
+          "time": "08:21",
           "height_m": 2.03
         },
         {
           "type": "L",
-          "time": "3:10 PM",
+          "time": "15:10",
           "height_m": -0.14
         },
         {
           "type": "H",
-          "time": "9:45 PM",
+          "time": "21:45",
           "height_m": 1.81
         }
       ],
       "moon_phase": null,
-      "sunrise": "6:01 AM",
-      "sunset": "6:55 PM",
-      "moonrise": "7:46 AM",
-      "moonset": "10:16 PM"
+      "sunrise": "06:01",
+      "sunset": "18:55",
+      "moonrise": "07:46",
+      "moonset": "22:16"
     },
     {
       "date": "2026-04-21",
@@ -346,30 +315,30 @@
       "tides": [
         {
           "type": "L",
-          "time": "3:13 AM",
+          "time": "03:13",
           "height_m": 0.79
         },
         {
           "type": "H",
-          "time": "9:00 AM",
+          "time": "09:00",
           "height_m": 1.96
         },
         {
           "type": "L",
-          "time": "3:59 PM",
+          "time": "15:59",
           "height_m": -0.03
         },
         {
           "type": "H",
-          "time": "10:40 PM",
+          "time": "22:40",
           "height_m": 1.68
         }
       ],
       "moon_phase": null,
-      "sunrise": "6:00 AM",
-      "sunset": "6:55 PM",
-      "moonrise": "8:45 AM",
-      "moonset": "11:23 PM"
+      "sunrise": "06:00",
+      "sunset": "18:55",
+      "moonrise": "08:45",
+      "moonset": "23:23"
     },
     {
       "date": "2026-04-22",
@@ -377,29 +346,29 @@
       "tides": [
         {
           "type": "L",
-          "time": "3:58 AM",
+          "time": "03:58",
           "height_m": 0.93
         },
         {
           "type": "H",
-          "time": "9:44 AM",
+          "time": "09:44",
           "height_m": 1.85
         },
         {
           "type": "L",
-          "time": "4:54 PM",
+          "time": "16:54",
           "height_m": 0.14
         },
         {
           "type": "H",
-          "time": "11:47 PM",
+          "time": "23:47",
           "height_m": 1.56
         }
       ],
       "moon_phase": null,
-      "sunrise": "5:59 AM",
-      "sunset": "6:56 PM",
-      "moonrise": "9:50 AM",
+      "sunrise": "05:59",
+      "sunset": "18:56",
+      "moonrise": "09:50",
       "moonset": null
     },
     {
@@ -408,25 +377,25 @@
       "tides": [
         {
           "type": "L",
-          "time": "4:56 AM",
+          "time": "04:56",
           "height_m": 1.06
         },
         {
           "type": "H",
-          "time": "10:39 AM",
+          "time": "10:39",
           "height_m": 1.71
         },
         {
           "type": "L",
-          "time": "6:01 PM",
+          "time": "18:01",
           "height_m": 0.32
         }
       ],
       "moon_phase": null,
-      "sunrise": "5:59 AM",
-      "sunset": "6:56 PM",
-      "moonrise": "10:58 AM",
-      "moonset": "12:23 AM"
+      "sunrise": "05:59",
+      "sunset": "18:56",
+      "moonrise": "10:58",
+      "moonset": "00:23"
     },
     {
       "date": "2026-04-24",
@@ -434,30 +403,30 @@
       "tides": [
         {
           "type": "H",
-          "time": "1:15 AM",
+          "time": "01:15",
           "height_m": 1.5
         },
         {
           "type": "L",
-          "time": "6:27 AM",
+          "time": "06:27",
           "height_m": 1.13
         },
         {
           "type": "H",
-          "time": "11:59 AM",
+          "time": "11:59",
           "height_m": 1.56
         },
         {
           "type": "L",
-          "time": "7:24 PM",
+          "time": "19:24",
           "height_m": 0.45
         }
       ],
       "moon_phase": "First Quarter",
-      "sunrise": "5:58 AM",
-      "sunset": "6:57 PM",
-      "moonrise": "12:04 PM",
-      "moonset": "1:14 AM"
+      "sunrise": "05:58",
+      "sunset": "18:57",
+      "moonrise": "12:04",
+      "moonset": "01:14"
     },
     {
       "date": "2026-04-25",
@@ -465,30 +434,30 @@
       "tides": [
         {
           "type": "H",
-          "time": "2:46 AM",
+          "time": "02:46",
           "height_m": 1.52
         },
         {
           "type": "L",
-          "time": "8:28 AM",
+          "time": "08:28",
           "height_m": 1.08
         },
         {
           "type": "H",
-          "time": "1:53 PM",
+          "time": "13:53",
           "height_m": 1.49
         },
         {
           "type": "L",
-          "time": "8:50 PM",
+          "time": "20:50",
           "height_m": 0.52
         }
       ],
       "moon_phase": null,
-      "sunrise": "5:57 AM",
-      "sunset": "6:57 PM",
-      "moonrise": "1:08 PM",
-      "moonset": "1:58 AM"
+      "sunrise": "05:57",
+      "sunset": "18:57",
+      "moonrise": "13:08",
+      "moonset": "01:58"
     },
     {
       "date": "2026-04-26",
@@ -496,30 +465,30 @@
       "tides": [
         {
           "type": "H",
-          "time": "3:51 AM",
+          "time": "03:51",
           "height_m": 1.6
         },
         {
           "type": "L",
-          "time": "9:52 AM",
+          "time": "09:52",
           "height_m": 0.91
         },
         {
           "type": "H",
-          "time": "3:29 PM",
+          "time": "15:29",
           "height_m": 1.54
         },
         {
           "type": "L",
-          "time": "9:59 PM",
+          "time": "21:59",
           "height_m": 0.53
         }
       ],
       "moon_phase": null,
-      "sunrise": "5:56 AM",
-      "sunset": "6:58 PM",
-      "moonrise": "2:08 PM",
-      "moonset": "2:35 AM"
+      "sunrise": "05:56",
+      "sunset": "18:58",
+      "moonrise": "14:08",
+      "moonset": "02:35"
     },
     {
       "date": "2026-04-27",
@@ -527,30 +496,30 @@
       "tides": [
         {
           "type": "H",
-          "time": "4:35 AM",
+          "time": "04:35",
           "height_m": 1.69
         },
         {
           "type": "L",
-          "time": "10:46 AM",
+          "time": "10:46",
           "height_m": 0.71
         },
         {
           "type": "H",
-          "time": "4:37 PM",
+          "time": "16:37",
           "height_m": 1.63
         },
         {
           "type": "L",
-          "time": "10:51 PM",
+          "time": "22:51",
           "height_m": 0.52
         }
       ],
       "moon_phase": null,
-      "sunrise": "5:55 AM",
-      "sunset": "6:58 PM",
-      "moonrise": "3:05 PM",
-      "moonset": "3:08 AM"
+      "sunrise": "05:55",
+      "sunset": "18:58",
+      "moonrise": "15:05",
+      "moonset": "03:08"
     },
     {
       "date": "2026-04-28",
@@ -558,30 +527,30 @@
       "tides": [
         {
           "type": "H",
-          "time": "5:08 AM",
+          "time": "05:08",
           "height_m": 1.78
         },
         {
           "type": "L",
-          "time": "11:27 AM",
+          "time": "11:27",
           "height_m": 0.52
         },
         {
           "type": "H",
-          "time": "5:29 PM",
+          "time": "17:29",
           "height_m": 1.72
         },
         {
           "type": "L",
-          "time": "11:31 PM",
+          "time": "23:31",
           "height_m": 0.53
         }
       ],
       "moon_phase": null,
-      "sunrise": "5:54 AM",
-      "sunset": "6:59 PM",
-      "moonrise": "4:00 PM",
-      "moonset": "3:39 AM"
+      "sunrise": "05:54",
+      "sunset": "18:59",
+      "moonrise": "16:00",
+      "moonset": "03:39"
     },
     {
       "date": "2026-04-29",
@@ -589,25 +558,25 @@
       "tides": [
         {
           "type": "H",
-          "time": "5:37 AM",
+          "time": "05:37",
           "height_m": 1.84
         },
         {
           "type": "L",
-          "time": "12:01 PM",
+          "time": "12:01",
           "height_m": 0.35
         },
         {
           "type": "H",
-          "time": "6:12 PM",
+          "time": "18:12",
           "height_m": 1.78
         }
       ],
       "moon_phase": null,
-      "sunrise": "5:53 AM",
-      "sunset": "6:59 PM",
-      "moonrise": "4:54 PM",
-      "moonset": "4:08 AM"
+      "sunrise": "05:53",
+      "sunset": "18:59",
+      "moonrise": "16:54",
+      "moonset": "04:08"
     },
     {
       "date": "2026-04-30",
@@ -615,30 +584,30 @@
       "tides": [
         {
           "type": "L",
-          "time": "12:06 AM",
+          "time": "00:06",
           "height_m": 0.55
         },
         {
           "type": "H",
-          "time": "6:04 AM",
+          "time": "06:04",
           "height_m": 1.9
         },
         {
           "type": "L",
-          "time": "12:33 PM",
+          "time": "12:33",
           "height_m": 0.22
         },
         {
           "type": "H",
-          "time": "6:51 PM",
+          "time": "18:51",
           "height_m": 1.82
         }
       ],
       "moon_phase": null,
-      "sunrise": "5:53 AM",
-      "sunset": "7:00 PM",
-      "moonrise": "5:48 PM",
-      "moonset": "4:38 AM"
+      "sunrise": "05:53",
+      "sunset": "19:00",
+      "moonrise": "17:48",
+      "moonset": "04:38"
     },
     {
       "date": "2026-05-01",
@@ -646,30 +615,61 @@
       "tides": [
         {
           "type": "L",
-          "time": "12:37 AM",
+          "time": "00:37",
           "height_m": 0.59
         },
         {
           "type": "H",
-          "time": "6:29 AM",
+          "time": "06:29",
           "height_m": 1.93
         },
         {
           "type": "L",
-          "time": "1:03 PM",
+          "time": "13:03",
           "height_m": 0.13
         },
         {
           "type": "H",
-          "time": "7:26 PM",
+          "time": "19:26",
           "height_m": 1.83
         }
       ],
       "moon_phase": null,
-      "sunrise": "5:52 AM",
-      "sunset": "7:00 PM",
-      "moonrise": "6:43 PM",
-      "moonset": "5:10 AM"
+      "sunrise": "05:52",
+      "sunset": "19:00",
+      "moonrise": "18:43",
+      "moonset": "05:10"
+    },
+    {
+      "date": "2026-05-02",
+      "label": "Sat 02 May",
+      "tides": [
+        {
+          "type": "L",
+          "time": "01:06",
+          "height_m": 0.64
+        },
+        {
+          "type": "H",
+          "time": "06:54",
+          "height_m": 1.94
+        },
+        {
+          "type": "L",
+          "time": "13:33",
+          "height_m": 0.09
+        },
+        {
+          "type": "H",
+          "time": "20:01",
+          "height_m": 1.82
+        }
+      ],
+      "moon_phase": "Full Moon",
+      "sunrise": "05:51",
+      "sunset": "19:01",
+      "moonrise": "19:39",
+      "moonset": "05:44"
     }
   ]
 }
