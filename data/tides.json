@@ -1,9 +1,40 @@
 {
   "location": "Naha, Okinawa, Japan",
   "timezone": "JST",
-  "generated": "2026-04-11",
+  "generated": "2026-04-10",
   "source": "https://www.tidetime.org/asia/japan/naha-okinawa-japan-calendar.htm",
   "days": [
+    {
+      "date": "2026-04-10",
+      "label": "Fri 10 Apr",
+      "tides": [
+        {
+          "type": "H",
+          "time": "01:13",
+          "height_m": 1.29
+        },
+        {
+          "type": "L",
+          "time": "05:41",
+          "height_m": 1.14
+        },
+        {
+          "type": "H",
+          "time": "11:15",
+          "height_m": 1.43
+        },
+        {
+          "type": "L",
+          "time": "19:09",
+          "height_m": 0.64
+        }
+      ],
+      "moon_phase": "Last Quarter",
+      "sunrise": "06:11",
+      "sunset": "18:50",
+      "moonrise": "01:18",
+      "moonset": "11:46"
+    },
     {
       "date": "2026-04-11",
       "label": "Sat 11 Apr",
@@ -639,37 +670,6 @@
       "sunset": "19:00",
       "moonrise": "18:43",
       "moonset": "05:10"
-    },
-    {
-      "date": "2026-05-02",
-      "label": "Sat 02 May",
-      "tides": [
-        {
-          "type": "L",
-          "time": "01:06",
-          "height_m": 0.64
-        },
-        {
-          "type": "H",
-          "time": "06:54",
-          "height_m": 1.94
-        },
-        {
-          "type": "L",
-          "time": "13:33",
-          "height_m": 0.09
-        },
-        {
-          "type": "H",
-          "time": "20:01",
-          "height_m": 1.82
-        }
-      ],
-      "moon_phase": "Full Moon",
-      "sunrise": "05:51",
-      "sunset": "19:01",
-      "moonrise": "19:39",
-      "moonset": "05:44"
     }
   ]
 }
