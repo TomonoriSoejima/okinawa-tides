@@ -119,6 +119,9 @@
     footer a { color: #7ec8e3; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
+    .sparkline-cell { padding: 0.3rem 0.5rem; vertical-align: middle; }
+    .sparkline-cell svg { display: block; }
+
     @media (max-width: 600px) {
       header h1 { font-size: 1.3rem; }
     }
@@ -151,6 +154,7 @@
       <th>Moon</th>
       <th>☀ Rise / Set</th>
       <th>🌙 Rise / Set</th>
+      <th>Trend</th>
     </tr>
   </thead>
   <tbody id="tbody">
@@ -165,6 +169,98 @@
 <script>
 const moonEmoji = { "Full Moon": "🌕", "Last Quarter": "🌗", "New Moon": "🌑", "First Quarter": "🌓" };
 const today = new Date().toISOString().slice(0, 10);
+
+// ── Sparkline helpers ────────────────────────────────────────────────────────
+
+function parseTimeToMinutes(timeStr) {
+  if (!timeStr) return null;
+  const m = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i);
+  if (!m) return null;
+  let h = parseInt(m[1], 10);
+  const min = parseInt(m[2], 10);
+  const period = m[3].toUpperCase();
+  if (period === 'PM' && h !== 12) h += 12;
+  if (period === 'AM' && h === 12) h = 0;
+  return h * 60 + min;
+}
+
+function cosineInterp(a, b, mu) {
+  return a + (b - a) * (1 - Math.cos(mu * Math.PI)) / 2;
+}
+
+/**
+ * Build an inline SVG sparkline for the given array of tide objects.
+ * uid – a unique string used to avoid duplicate SVG gradient IDs.
+ */
+function buildSparklineSVG(tides, uid) {
+  const W = 160, H = 44, PAD = 4;
+
+  if (!tides || tides.length < 2) {
+    return `<svg width="${W}" height="${H}" aria-hidden="true"></svg>`;
+  }
+
+  const pts = tides
+    .map(t => ({ t: parseTimeToMinutes(t.time), h: t.height_m, type: t.type }))
+    .filter(p => p.t !== null)
+    .sort((a, b) => a.t - b.t);
+
+  if (pts.length < 2) {
+    return `<svg width="${W}" height="${H}" aria-hidden="true"></svg>`;
+  }
+
+  const hs = pts.map(p => p.h);
+  const hMin = Math.min(...hs), hMax = Math.max(...hs);
+  const hPad = Math.max((hMax - hMin) * 0.2, 0.05);
+  const lo = hMin - hPad, hi = hMax + hPad, hRng = hi - lo;
+
+  // Extend one segment beyond each day boundary so the curve reaches
+  // t=0 and t=1440 smoothly via cosine interpolation.
+  const ext = [
+    { t: pts[0].t - (pts[1].t - pts[0].t), h: pts[1].h },
+    ...pts,
+    { t: pts[pts.length - 1].t + (pts[pts.length - 1].t - pts[pts.length - 2].t),
+      h: pts[pts.length - 2].h }
+  ];
+
+  const toX = t  => PAD + (W - PAD * 2) * (t / 1440);
+  const toY = h  => PAD + (H - PAD * 2) * (1 - (h - lo) / hRng);
+
+  // Sample the cosine-interpolated curve at 120 evenly-spaced time steps.
+  const N = 120;
+  const samples = [];
+  for (let i = 0; i <= N; i++) {
+    const t = (i / N) * 1440;
+    let s1 = ext[0], s2 = ext[ext.length - 1];
+    for (let j = 0; j < ext.length - 1; j++) {
+      if (ext[j].t <= t && ext[j + 1].t > t) { s1 = ext[j]; s2 = ext[j + 1]; break; }
+    }
+    const mu = Math.max(0, Math.min(1, (t - s1.t) / (s2.t - s1.t)));
+    samples.push({ x: toX(t), y: toY(cosineInterp(s1.h, s2.h, mu)) });
+  }
+
+  const lineD = samples.map((p, i) =>
+    `${i ? 'L' : 'M'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ');
+  const areaD =
+    `${lineD} L ${toX(1440).toFixed(1)} ${H} L ${toX(0).toFixed(1)} ${H} Z`;
+
+  const dots = pts.map(p => {
+    const color = p.type === 'H' ? '#7ec8e3' : '#f4a261';
+    return `<circle cx="${toX(p.t).toFixed(1)}" cy="${toY(p.h).toFixed(1)}" r="2.5" fill="${color}" stroke="#0a1628" stroke-width="0.5"/>`;
+  }).join('');
+
+  const gid = `sg${uid}`;
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" aria-hidden="true">` +
+    `<defs><linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1">` +
+    `<stop offset="0%" stop-color="#7ec8e3" stop-opacity="0.30"/>` +
+    `<stop offset="100%" stop-color="#7ec8e3" stop-opacity="0.04"/>` +
+    `</linearGradient></defs>` +
+    `<path d="${areaD}" fill="url(#${gid})"/>` +
+    `<path d="${lineD}" fill="none" stroke="#7ec8e3" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>` +
+    `${dots}` +
+    `</svg>`;
+}
+
+// ── Table renderer ───────────────────────────────────────────────────────────
 
 function renderTable(days) {
   const tbody = document.getElementById("tbody");
@@ -211,6 +307,13 @@ function renderTable(days) {
     tdMoonTime.innerHTML = `<span class="moon-row">↑ ${day.moonrise || "—"}<br>↓ ${day.moonset || "—"}</span>`;
     tr.appendChild(tdMoonTime);
 
+    // Sparkline
+    const tdSpark = document.createElement("td");
+    tdSpark.className = "sparkline-cell";
+    const uid = day.date.replace(/-/g, '');
+    tdSpark.innerHTML = buildSparklineSVG(day.tides, uid);
+    tr.appendChild(tdSpark);
+
     tbody.appendChild(tr);
   });
 }
@@ -224,7 +327,7 @@ fetch('./data/tides.json')
   })
   .catch(() => {
     document.getElementById("tbody").innerHTML =
-      '<tr><td colspan="9" style="text-align:center;color:#f4a261;padding:2rem">Could not load data/tides.json — serve this folder with a local HTTP server.<br><code>python3 -m http.server 8080</code></td></tr>';
+      '<tr><td colspan="10" style="text-align:center;color:#f4a261;padding:2rem">Could not load data/tides.json — serve this folder with a local HTTP server.<br><code>python3 -m http.server 8080</code></td></tr>';
   });
 
 </script>
