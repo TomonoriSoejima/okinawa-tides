@@ -281,6 +281,7 @@ function fetchWeather() {
   const lat = 26.35, lon = 127.74; // Chatan/Yomitan coast
   const wxUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
     `&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant` +
+    `&wind_speed_unit=ms` +
     `&timezone=Asia%2FTokyo&forecast_days=16`;
   const marineUrl = `https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lon}` +
     `&daily=wave_height_max&timezone=Asia%2FTokyo&forecast_days=7`;
@@ -317,7 +318,7 @@ function fetchWeather() {
         strip.innerHTML =
           `<span class="wx-cond">${emoji} ${label}</span>` +
           `<span class="wx-temp">🌡 ${Math.round(w.tmin)}–${Math.round(w.tmax)}°C</span>` +
-          `<span class="wx-wind">💨 ${Math.round(w.wind)} km/h ${windArrow(w.windDir)}</span>` +
+          `<span class="wx-wind">💨 ${Math.round(w.wind)} m/s ${windArrow(w.windDir)}</span>` +
           (w.rain != null ? `<span class="wx-rain">🌧 ${w.rain}%</span>` : "") +
           (w.wave != null ? `<span class="wx-wave">🌊 ${w.wave.toFixed(1)} m</span>` : "");
         card.insertBefore(strip, card.children[1]);
