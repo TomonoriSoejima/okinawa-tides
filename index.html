@@ -246,7 +246,7 @@ function windArrow(deg) {
 }
 
 function fetchWeather() {
-  const lat = 26.21, lon = 127.68;
+  const lat = 26.35, lon = 127.74; // Chatan/Yomitan coast
   const wxUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
     `&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant` +
     `&timezone=Asia%2FTokyo&forecast_days=16`;
