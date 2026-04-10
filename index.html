@@ -333,6 +333,8 @@ fetch('./data/tides.json')
     document.getElementById("subtitle").textContent =
       `${first} – ${last} · ${data.timezone} · Heights in cm`;
     renderCards(data.days);
+    const todayCard = document.querySelector('.card.today');
+    if (todayCard) todayCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
   })
   .catch(() => {
     document.getElementById("cards").innerHTML =
