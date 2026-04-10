@@ -332,14 +332,17 @@ function t(val) { return val || "—"; }
 // ── Sparkline (cosine interpolation, courtesy Copilot) ──
 function parseTimeToMinutes(timeStr) {
   if (!timeStr) return null;
-  const m = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i);
-  if (!m) return null;
-  let h = parseInt(m[1], 10);
-  const min = parseInt(m[2], 10);
-  const period = m[3].toUpperCase();
-  if (period === 'PM' && h !== 12) h += 12;
-  if (period === 'AM' && h === 12) h = 0;
-  return h * 60 + min;
+  const ampm = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i);
+  if (ampm) {
+    let h = parseInt(ampm[1], 10);
+    const min = parseInt(ampm[2], 10);
+    if (ampm[3].toUpperCase() === 'PM' && h !== 12) h += 12;
+    if (ampm[3].toUpperCase() === 'AM' && h === 12) h = 0;
+    return h * 60 + min;
+  }
+  const h24 = timeStr.match(/^(\d{1,2}):(\d{2})$/);
+  if (h24) return parseInt(h24[1], 10) * 60 + parseInt(h24[2], 10);
+  return null;
 }
 
 function cosineInterp(a, b, mu) {
