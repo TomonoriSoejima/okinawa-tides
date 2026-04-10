@@ -13,21 +13,36 @@
       color: #ddeeff;
       min-height: 100vh;
       padding: 1rem 0.75rem 2rem;
+      transition: background 2s ease;
     }
 
     header {
       text-align: center;
       margin-bottom: 1.25rem;
+      padding: 1.5rem 1rem 1.25rem;
+      border-radius: 18px;
+      margin-bottom: 1.25rem;
+      transition: background 2s ease;
     }
     header h1 {
       font-size: 1.4rem;
       font-weight: 700;
-      color: #7ec8e3;
+      color: #fff;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.4);
     }
     header p {
       font-size: 0.8rem;
-      color: #7a9ab8;
+      color: rgba(255,255,255,0.7);
       margin-top: 0.25rem;
+    }
+
+    /* card fade-in */
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card {
+      animation: cardIn 0.35s ease both;
     }
 
     /* ── Cards ── */
@@ -38,6 +53,7 @@
       border-radius: 14px;
       overflow: hidden;
       border: 1px solid #1a3050;
+      animation: cardIn 0.35s ease both;
     }
     .card.today {
       border-color: #3a90d0;
@@ -377,6 +393,7 @@ function renderCards(days) {
     const card = document.createElement("div");
     card.className = "card" + (isToday ? " today" : "");
     card.dataset.date = day.date;
+    card.style.animationDelay = `${days.indexOf(day) * 40}ms`;
 
     // ── header ──
     const head = document.createElement("div");
@@ -454,6 +471,45 @@ function renderCards(days) {
     container.appendChild(card);
   });
 }
+
+function applyTimeGradient() {
+  const h = new Date().getHours();
+  // Palette keyed by hour ranges
+  let bg, hdr;
+  if (h >= 5 && h < 7) {
+    // Dawn
+    bg  = 'linear-gradient(160deg, #0d1b2a 0%, #1a3a5c 100%)';
+    hdr = 'linear-gradient(135deg, #1a3a5c 0%, #c47b3a 100%)';
+  } else if (h >= 7 && h < 11) {
+    // Morning
+    bg  = 'linear-gradient(160deg, #08121f 0%, #0d2a4a 100%)';
+    hdr = 'linear-gradient(135deg, #0d5fa0 0%, #5bbfea 100%)';
+  } else if (h >= 11 && h < 15) {
+    // Midday
+    bg  = 'linear-gradient(160deg, #07101e 0%, #0a2540 100%)';
+    hdr = 'linear-gradient(135deg, #0a7ec8 0%, #7ddcf8 100%)';
+  } else if (h >= 15 && h < 17) {
+    // Afternoon
+    bg  = 'linear-gradient(160deg, #08121f 0%, #0c2038 100%)';
+    hdr = 'linear-gradient(135deg, #0d5fa0 0%, #48b0e0 100%)';
+  } else if (h >= 17 && h < 19) {
+    // Sunset
+    bg  = 'linear-gradient(160deg, #0c0e1a 0%, #2a1a2e 100%)';
+    hdr = 'linear-gradient(135deg, #c4573a 0%, #e8904a 50%, #7a4a9a 100%)';
+  } else if (h >= 19 && h < 21) {
+    // Dusk
+    bg  = 'linear-gradient(160deg, #090b14 0%, #1a1030 100%)';
+    hdr = 'linear-gradient(135deg, #3a1a5a 0%, #6a3a8a 100%)';
+  } else {
+    // Night
+    bg  = 'linear-gradient(160deg, #05080f 0%, #0a1020 100%)';
+    hdr = 'linear-gradient(135deg, #0a0e1a 0%, #162240 100%)';
+  }
+  document.body.style.background = bg;
+  document.querySelector('header').style.background = hdr;
+}
+
+applyTimeGradient();
 
 fetch('./data/tides.json')
   .then(r => r.json())
