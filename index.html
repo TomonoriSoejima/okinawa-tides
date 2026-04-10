@@ -68,6 +68,22 @@
       margin-left: 0.5rem;
       vertical-align: middle;
     }
+    .card-head-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .share-btn {
+      background: none;
+      border: 1px solid #2a4a6a;
+      color: #7ec8e3;
+      border-radius: 8px;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .share-btn:active { background: #1a3555; }
     .moon-phase {
       font-size: 0.75rem;
       background: #1c3555;
@@ -267,6 +283,7 @@ function renderCards(days) {
     const isToday = day.date === today;
     const card = document.createElement("div");
     card.className = "card" + (isToday ? " today" : "");
+    card.dataset.date = day.date;
 
     // ── header ──
     const head = document.createElement("div");
@@ -275,12 +292,32 @@ function renderCards(days) {
     dateEl.className = "card-date";
     dateEl.innerHTML = day.label + (isToday ? ' <span class="today-badge">Today</span>' : "");
     head.appendChild(dateEl);
+    const headRight = document.createElement("div");
+    headRight.className = "card-head-right";
     if (day.moon_phase) {
       const ph = document.createElement("span");
       ph.className = "moon-phase";
       ph.textContent = (moonEmoji[day.moon_phase] || "") + " " + day.moon_phase;
-      head.appendChild(ph);
+      headRight.appendChild(ph);
     }
+    if (navigator.share) {
+      const btn = document.createElement("button");
+      btn.className = "share-btn";
+      btn.textContent = "↗";
+      btn.setAttribute("aria-label", "Share");
+      btn.addEventListener("click", () => {
+        const tideSummary = day.tides.map(ti =>
+          `${ti.type === 'H' ? '▲' : '▼'} ${ti.time} ${Math.round(ti.height_m * 100)}cm`
+        ).join('  ');
+        navigator.share({
+          title: `Naha Tides – ${day.label}`,
+          text: `🌊 ${day.label}\n${tideSummary}`,
+          url: `${location.origin}${location.pathname}#${day.date}`
+        }).catch(() => {});
+      });
+      headRight.appendChild(btn);
+    }
+    head.appendChild(headRight);
     card.appendChild(head);
 
     // ── sun / moon meta ──
@@ -333,8 +370,12 @@ fetch('./data/tides.json')
     document.getElementById("subtitle").textContent =
       `${first} – ${last} · ${data.timezone} · Heights in cm`;
     renderCards(data.days);
-    const todayCard = document.querySelector('.card.today');
-    if (todayCard) todayCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Scroll to hash date or today
+    const hash = location.hash.replace('#', '');
+    const target = hash
+      ? document.querySelector(`[data-date="${hash}"]`)
+      : document.querySelector('.card.today');
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   })
   .catch(() => {
     document.getElementById("cards").innerHTML =
