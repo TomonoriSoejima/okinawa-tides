@@ -1,102 +1,9 @@
 {
   "location": "Naha, Okinawa, Japan",
   "timezone": "JST",
-  "generated": "2026-04-10",
+  "generated": "2026-04-13",
   "source": "https://www.tidetime.org/asia/japan/naha-okinawa-japan-calendar.htm",
   "days": [
-    {
-      "date": "2026-04-10",
-      "label": "Fri 10 Apr",
-      "tides": [
-        {
-          "type": "H",
-          "time": "01:13",
-          "height_m": 1.29
-        },
-        {
-          "type": "L",
-          "time": "05:41",
-          "height_m": 1.14
-        },
-        {
-          "type": "H",
-          "time": "11:15",
-          "height_m": 1.43
-        },
-        {
-          "type": "L",
-          "time": "19:09",
-          "height_m": 0.64
-        }
-      ],
-      "moon_phase": "Last Quarter",
-      "sunrise": "06:11",
-      "sunset": "18:50",
-      "moonrise": "01:18",
-      "moonset": "11:46"
-    },
-    {
-      "date": "2026-04-11",
-      "label": "Sat 11 Apr",
-      "tides": [
-        {
-          "type": "H",
-          "time": "03:15",
-          "height_m": 1.35
-        },
-        {
-          "type": "L",
-          "time": "08:09",
-          "height_m": 1.15
-        },
-        {
-          "type": "H",
-          "time": "13:13",
-          "height_m": 1.36
-        },
-        {
-          "type": "L",
-          "time": "20:53",
-          "height_m": 0.61
-        }
-      ],
-      "moon_phase": null,
-      "sunrise": "06:10",
-      "sunset": "18:50",
-      "moonrise": "02:02",
-      "moonset": "12:43"
-    },
-    {
-      "date": "2026-04-12",
-      "label": "Sun 12 Apr",
-      "tides": [
-        {
-          "type": "H",
-          "time": "04:13",
-          "height_m": 1.46
-        },
-        {
-          "type": "L",
-          "time": "09:46",
-          "height_m": 1.01
-        },
-        {
-          "type": "H",
-          "time": "15:05",
-          "height_m": 1.43
-        },
-        {
-          "type": "L",
-          "time": "22:01",
-          "height_m": 0.52
-        }
-      ],
-      "moon_phase": null,
-      "sunrise": "06:09",
-      "sunset": "18:51",
-      "moonrise": "02:41",
-      "moonset": "13:41"
-    },
     {
       "date": "2026-04-13",
       "label": "Mon 13 Apr",
@@ -670,6 +577,99 @@
       "sunset": "19:00",
       "moonrise": "18:43",
       "moonset": "05:10"
+    },
+    {
+      "date": "2026-05-02",
+      "label": "Sat 02 May",
+      "tides": [
+        {
+          "type": "L",
+          "time": "01:06",
+          "height_m": 0.64
+        },
+        {
+          "type": "H",
+          "time": "06:54",
+          "height_m": 1.94
+        },
+        {
+          "type": "L",
+          "time": "13:33",
+          "height_m": 0.09
+        },
+        {
+          "type": "H",
+          "time": "20:01",
+          "height_m": 1.82
+        }
+      ],
+      "moon_phase": "Full Moon",
+      "sunrise": "05:51",
+      "sunset": "19:01",
+      "moonrise": "19:39",
+      "moonset": "05:44"
+    },
+    {
+      "date": "2026-05-03",
+      "label": "Sun 03 May",
+      "tides": [
+        {
+          "type": "L",
+          "time": "01:35",
+          "height_m": 0.7
+        },
+        {
+          "type": "H",
+          "time": "07:20",
+          "height_m": 1.93
+        },
+        {
+          "type": "L",
+          "time": "14:03",
+          "height_m": 0.09
+        },
+        {
+          "type": "H",
+          "time": "20:35",
+          "height_m": 1.77
+        }
+      ],
+      "moon_phase": null,
+      "sunrise": "05:50",
+      "sunset": "19:02",
+      "moonrise": "20:36",
+      "moonset": "06:22"
+    },
+    {
+      "date": "2026-05-04",
+      "label": "Mon 04 May",
+      "tides": [
+        {
+          "type": "L",
+          "time": "02:04",
+          "height_m": 0.77
+        },
+        {
+          "type": "H",
+          "time": "07:48",
+          "height_m": 1.91
+        },
+        {
+          "type": "L",
+          "time": "14:35",
+          "height_m": 0.13
+        },
+        {
+          "type": "H",
+          "time": "21:11",
+          "height_m": 1.71
+        }
+      ],
+      "moon_phase": null,
+      "sunrise": "05:50",
+      "sunset": "19:02",
+      "moonrise": "21:31",
+      "moonset": "07:04"
     }
   ]
 }
